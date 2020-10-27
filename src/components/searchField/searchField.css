@@ -1,0 +1,10 @@
+.search-field{
+    display: flex;
+    justify-content: center;
+}
+.search-field-input {
+    margin: 10px;
+    border-radius: 20px;
+    width: 100%;
+    border-color: #999;
+}

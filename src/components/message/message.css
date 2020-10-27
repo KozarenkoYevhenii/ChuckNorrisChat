@@ -1,0 +1,11 @@
+.message-wrapper {
+  display: flex;
+  flex-direction: row;
+}
+.message {
+  display: flex;
+  flex-direction: column;
+}
+.message-text {
+  padding-top: 20px;
+}

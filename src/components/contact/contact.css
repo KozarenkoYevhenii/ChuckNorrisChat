@@ -1,0 +1,9 @@
+.contact{
+    display: flex;
+    flex-direction: row;
+    background-color: #ddd;
+    border-left: 1px solid #bbb;
+    border-bottom: 1px solid #bbb;
+    align-items: center;
+    padding-bottom: 10px;
+}

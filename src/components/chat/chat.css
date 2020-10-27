@@ -1,0 +1,28 @@
+.chat-item{
+width: 100%;
+border-bottom: 2px solid #ddd;
+display: flex;
+}
+.contact-img{
+    width: 40px;
+    height: 40px;
+    border-radius: 20px;
+    margin: 10px;
+    flex: 1;
+}
+.chat-date{
+    margin: 10px;
+    font-size: 12px;
+    flex: 2;
+}
+.chat-name-message-wrapper {
+    margin: 10px;
+    flex: 4;
+}
+.chat-message{
+    color: #999;
+    font-size: 14px;
+}
+.chat-name{
+    font-size: 16px;
+}

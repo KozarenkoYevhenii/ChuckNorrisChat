@@ -1,0 +1,7 @@
+.messages {
+  background-color: #eee;
+  border-left: 1px solid #bbb;
+  border-bottom: 1px solid #bbb;
+  display: flex;
+  flex-direction: column;
+}

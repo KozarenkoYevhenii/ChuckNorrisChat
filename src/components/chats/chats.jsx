@@ -1,11 +1,12 @@
 import React from "react";
 import Chat from "../chat/chat";
+import "./chats.css"
 
 const Chats = () => {
     return (
-        <div>
-            <span>Chats</span>
-            <div>
+        <div className="chats">
+            <div className="chats-title">Chats</div>
+            <div className="chats-items">
                 <Chat />
                 <Chat />
                 <Chat />

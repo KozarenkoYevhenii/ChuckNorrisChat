@@ -1,0 +1,6 @@
+.dialog {
+    display: flex;
+    flex: 2;
+    align-content: center;
+    flex-direction: column;
+}
