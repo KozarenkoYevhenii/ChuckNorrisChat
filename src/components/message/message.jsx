@@ -8,7 +8,7 @@ const Message = () => {
       <Avatar />
       <div className="message">
         <div className="message-text">Message text</div>
-        <div className="message-date">dd/mm/yyyy</div>
+        <div className="message-date">dd/mm/yyyy, time</div>
       </div>
     </div>
   );

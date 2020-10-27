@@ -1,0 +1,17 @@
+.message-input{
+    display: flex;
+    background-color: #ddd;
+    border-left: 1px solid #bbb;
+    border-bottom: 1px solid #bbb;
+    justify-content: center;
+    padding: 20px;
+    
+    
+}
+.message-input-field{
+    width: 100%;
+    height: 40px;
+    border-radius: 20px;
+    border-color: #999;
+    border-style: solid;
+}
