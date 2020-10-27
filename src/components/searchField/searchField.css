@@ -1,11 +1,20 @@
 .search-field{
     display: flex;
-    justify-content: center;
+    justify-content: start;
+    border-radius: 20px;
+    border: 1px solid #999;
+    height: 30px;
+    margin: 10px;
+    background-color: #fff;
 }
 .search-field-input {
-    margin: 10px;
-    border-radius: 20px;
-    width: 100%;
-    border-color: #999;
-    border-style: solid;
+   width: 80%;
+   border: none;
+}
+.search-icon{
+    width: 15px;
+    height: 15px;
+    padding-top: 7px;
+    padding-left: 10px;
+    filter: brightness(0.25);
 }
