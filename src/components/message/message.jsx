@@ -2,13 +2,13 @@ import React from "react";
 import Avatar from "../avatar/avatar";
 import "./message.css";
 
-const Message = () => {
+const Message = (props) => {
   return (
     <div className="message-wrapper">
-      <Avatar />
+      <Avatar avatar={props.avatar}/>
       <div className="message">
-        <div className="message-text">Message text</div>
-        <div className="message-date">dd/mm/yyyy, time</div>
+        <div className="message-text">{props.text}</div>
+        <div className="message-date">{props.date}, {props.time}</div>
       </div>
     </div>
   );

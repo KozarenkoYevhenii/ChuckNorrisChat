@@ -8,7 +8,9 @@ const mapState = (state) => {
     dialogs: state.dialogs,
   };
 };
-const mapDispatch = (dispatch) => {};
+const mapDispatch = (dispatch) => {
+    return {}
+};
 
 class Chats extends React.Component {
   render() {

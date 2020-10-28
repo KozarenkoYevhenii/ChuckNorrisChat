@@ -28,7 +28,7 @@ const initialStore = {
         "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcT6ymzVmwGRhyOWVjfsI7JCCIXloiZhR2--QQ&usqp=CAU",
       messages: [
         {
-          text: "You are the worst",
+          text: "You are the best",
           date: "Jun 12, 2017",
           time: "4:00 AM",
         },
@@ -41,7 +41,7 @@ const initialStore = {
         "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcT6ymzVmwGRhyOWVjfsI7JCCIXloiZhR2--QQ&usqp=CAU",
       messages: [
         {
-          text: "You are the worst",
+          text: "We are the champions",
           date: "Jun 12, 2017",
           time: "4:00 AM",
         },

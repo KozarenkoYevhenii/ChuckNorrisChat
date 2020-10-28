@@ -2,12 +2,12 @@ import React from "react";
 import Message from "../message/message";
 import "./messages.css";
 
-const Messages = () => {
+const Messages = (props) => {
     return (
         <div className="messages">
-            <Message />
-            <Message />
-            <Message />
+            {props.dialog.messages.map(message => {
+                return <Message text={message.text} date={message.date} time={message.time} avatar={props.dialog.avatar}/>
+            })}
         </div> 
     )
 }

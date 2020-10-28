@@ -4,11 +4,12 @@ import MessageInput from "../messageInput/messageInput";
 import Messages from "../messages/messages";
 import "./dialog.css"
 
-const Dialog = () => {
+const Dialog = (props) => {
+
     return (
         <div className="dialog">
-            <Contact />
-            <Messages />
+            <Contact name={props.dialog.contact} avatar={props.dialog.avatar}/>
+            <Messages dialog={props.dialog}/>
             <MessageInput />
         </div>
     )

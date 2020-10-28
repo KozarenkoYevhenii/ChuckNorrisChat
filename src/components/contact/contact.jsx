@@ -2,11 +2,12 @@ import React from "react";
 import Avatar from "../avatar/avatar"
 import "./contact.css"
 
-const Contact = () => {
+const Contact = (props) => {
+    
     return (
         <div className="contact">
-            <Avatar />
-           <div>Name</div> 
+            <Avatar avatar={props.avatar} />
+           <div>{props.name}</div> 
         </div>
     )
 }
