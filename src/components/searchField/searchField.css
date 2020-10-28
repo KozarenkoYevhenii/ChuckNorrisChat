@@ -10,6 +10,7 @@
 .search-field-input {
    width: 80%;
    border: none;
+   outline: none;
 }
 .search-icon{
     width: 15px;
