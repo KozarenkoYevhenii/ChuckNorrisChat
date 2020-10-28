@@ -17,5 +17,5 @@
     height: 15px;
     padding-top: 7px;
     padding-left: 10px;
-    filter: brightness(0.25);
+    filter: opacity(25%);
 }

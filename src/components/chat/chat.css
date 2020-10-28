@@ -1,7 +1,12 @@
+a {
+    text-decoration: none;
+    color: #222;
+}
 .chat-item{
 width: 100%;
 border-bottom: 2px solid #ddd;
 display: flex;
+text-decoration: none;
 }
 .contact-img{
     width: 40px;
