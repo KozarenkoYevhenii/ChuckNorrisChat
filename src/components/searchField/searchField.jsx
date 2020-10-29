@@ -1,11 +1,40 @@
 import React from "react";
 import "./searchField.css";
+import { connect } from "react-redux";
 
-const SearchField = () => {
-  return (
-    <div className="search-field">
-      <img className="search-icon"
-        src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/
+const mapState = (store) => {
+  return {
+    dialogs: store.dialogs,
+  };
+};
+const mapDispatch = (dispatch) => {
+  return {};
+};
+
+class SearchField extends React.Component {
+  state = {
+    contacts: [this.props.dialogs.map((contact) => contact.contact)],
+    filteredContacts: [this.props.dialogs.map((contact) => contact.contact)],
+    search: "",
+  };
+
+  handleSearchChange = (e) => {
+    const currentInput = e.target.value;
+    console.log(this.state.contacts[0][0]);
+    console.log(this.state.filteredContacts);
+    this.setState({
+      search: currentInput,
+      filteredContacts: this.state.contacts[0].filter((contact) =>
+        contact[0].toLocaleLowerCase().includes(currentInput.toLocaleLowerCase())
+      ),
+    });
+  };
+  render() {
+    return (
+      <div className="search-field">
+        <img
+          className="search-icon"
+          src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/
         Pg0KPCEtLSBHZW5lcmF0b3I6IEFkb2JlIElsbHVzdHJhdG9yIDE5LjAuMCwgU1ZHIEV4cG9ydCBQbHVnLUluIC4
         gU1ZHIFZlcnNpb246IDYuMDAgQnVpbGQgMCkgIC0tPg0KPHN2ZyB2ZXJzaW9uPSIxLjEiIGlkPSJDYXBhXzEiIH
         htbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnL
@@ -22,15 +51,18 @@ const SearchField = () => {
         nPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCj
         xnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NC
         jxnPg0KPC9nPg0KPC9zdmc+DQo="
-        alt=" "
-      />
-      <input
-        className="search-field-input"
-        placeholder=" Search or start new chat"
-        type="text"
-      />
-    </div>
-  );
-};
+          alt=" "
+        />
+        <input
+          value={this.state.search}
+          onChange={this.handleSearchChange}
+          className="search-field-input"
+          placeholder=" Search or start new chat"
+          type="text"
+        />
+      </div>
+    );
+  }
+}
 
-export default SearchField;
+export default connect(mapState, mapDispatch)(SearchField);
