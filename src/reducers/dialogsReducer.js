@@ -52,20 +52,6 @@ const initialStore = {
   ],
   myAvatar:
     "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQR4uQSf4pHUcTnhnAfADvWGFGq7tXiZw94dw&usqp=CAU",
-  messages: [
-    {
-      author: "contact",
-      text: "You are the worst",
-      date: "Jun 12, 2017",
-      time: "4:00 AM",
-    },
-    {
-      author: "me",
-      text: "I`m having breackfast right now, can`t you wait for 10 minutes?",
-      date: "Jun 12, 2017",
-      time: "4:05 AM",
-    },
-  ],
 };
 
 const dialogsReducer = (store = initialStore, action) => {

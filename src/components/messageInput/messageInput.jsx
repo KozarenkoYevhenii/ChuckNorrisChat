@@ -63,6 +63,7 @@ class MessageInput extends React.Component {
       <div className="message-input">
         <div className="message-input-wrapper">
           <input
+            value={this.state.messageText}
             className="message-input-field"
             placeholder="  Type your message"
             onChange={this.changeMessageText}
