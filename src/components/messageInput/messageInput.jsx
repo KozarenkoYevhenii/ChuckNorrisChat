@@ -1,6 +1,7 @@
 import React from "react";
 import "./messageInput.css";
 import { connect } from "react-redux";
+import axios from "axios";
 
 const mapState = (store) => {
   return {
@@ -40,6 +41,11 @@ const months = [
 
 const time = new Date();
 const date = time.getDate() + " " + months[time.getMonth()] + ".";
+async function getJoke() {
+  const result = await axios("https://api.chucknorris.io/jokes/random");
+  const joke = result.data.value;
+  return joke;
+}
 
 class MessageInput extends React.Component {
   state = {
@@ -53,10 +59,19 @@ class MessageInput extends React.Component {
   changeMessageText = (e) => {
     this.setState({ messageText: e.target.value });
   };
+  addRespond = (joke) => {
+    this.setState({
+      messageText: joke,
+      author: "Chuck Norris",
+    });
+    this.props.addNewMessage(this.state);
+    this.setState({ messageText: "" });
+  };
   addNewMessage = (e) => {
     this.props.addNewMessage(this.state);
-    e.target.value = ""
+    e.target.value = "";
     this.setState({ messageText: "" });
+    getJoke().then((joke) => this.addRespond(joke));
   };
   render() {
     return (
@@ -68,7 +83,11 @@ class MessageInput extends React.Component {
             placeholder="  Type your message"
             onChange={this.changeMessageText}
           />
-          <button className="message-button" type="submit" onClick={this.addNewMessage}>
+          <button
+            className="message-button"
+            type="submit"
+            onClick={this.addNewMessage}
+          >
             <img
               className="message-img"
               src="data:image/svg+xml;base64,

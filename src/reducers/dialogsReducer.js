@@ -64,6 +64,7 @@ const dialogsReducer = (store = initialStore, action) => {
         (dialog) => dialog.id !== action.dialogId
       );
       dialog.messages = [action.newMessage, ...dialog.messages];
+
       return {
         ...store,
         dialogs: [dialog, ...unChangedDialogs],
