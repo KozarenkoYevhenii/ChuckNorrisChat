@@ -8,26 +8,34 @@ const mapState = (store) => {
   };
 };
 const mapDispatch = (dispatch) => {
-  return {};
+  return {
+    filterDialogs: (filteredDialogs) =>
+      dispatch({
+        type: "FILTER_CONTACTS",
+        filteredDialogs,
+      }),
+  };
 };
 
 class SearchField extends React.Component {
   state = {
-    contacts: [this.props.dialogs.map((contact) => contact.contact)],
-    filteredContacts: [this.props.dialogs.map((contact) => contact.contact)],
+    dialogs: [...this.props.dialogs],
+    filteredDialogs: [...this.props.dialogs],
     search: "",
   };
 
   handleSearchChange = (e) => {
     const currentInput = e.target.value;
-    console.log(this.state.contacts[0][0]);
-    console.log(this.state.filteredContacts);
     this.setState({
       search: currentInput,
-      filteredContacts: this.state.contacts[0].filter((contact) =>
-        contact[0].toLocaleLowerCase().includes(currentInput.toLocaleLowerCase())
+      filteredDialogs: this.state.dialogs.filter((dialog) =>
+        dialog.contact
+          .toLocaleLowerCase()
+          .includes(currentInput.toLocaleLowerCase())
       ),
     });
+
+    this.props.filterDialogs(this.state.filteredDialogs);
   };
   render() {
     return (

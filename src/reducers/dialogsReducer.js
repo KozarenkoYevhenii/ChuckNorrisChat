@@ -69,6 +69,12 @@ const dialogsReducer = (store = initialStore, action) => {
         dialogs: [dialog, ...unChangedDialogs],
       };
     }
+    case "FILTER_CONTACTS": {
+      return {
+        ...store,
+        dialogs: [...action.filteredDialogs],
+      };
+    }
 
     default:
       return store;
