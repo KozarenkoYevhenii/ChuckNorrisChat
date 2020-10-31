@@ -2,6 +2,7 @@ import React from "react";
 import "./messageInput.css";
 import { connect } from "react-redux";
 import axios from "axios";
+import store from "store";
 
 const mapState = (store) => {
   return {
@@ -64,13 +65,22 @@ class MessageInput extends React.Component {
       messageText: joke,
       author: "Chuck Norris",
     });
-    this.props.addNewMessage(this.state);
+    const currentMessage = this.state;
+    this.props.addNewMessage(currentMessage);
+    const addedMessages = store.get("messages");
+    addedMessages.unshift(currentMessage);
+    store.set("messages", addedMessages);
     this.setState({ messageText: "" });
   };
   addNewMessage = (e) => {
-    this.props.addNewMessage(this.state);
+    const currentMessage = this.state;
+    this.props.addNewMessage(currentMessage);
+    let addedMessages = [];
+    store.get("messages") ? addedMessages = store.get("messages") : addedMessages = [];
+    addedMessages.unshift(currentMessage);
+    store.set("messages", addedMessages);
     e.target.value = "";
-    this.setState({ messageText: "" });
+    this.setState({ messageText: "", author: "me" });
     getJoke().then((joke) => this.addRespond(joke));
   };
   render() {
