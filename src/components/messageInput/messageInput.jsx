@@ -41,7 +41,9 @@ const months = [
 ];
 
 const time = new Date();
-const date = time.getDate() + " " + months[time.getMonth()] + ".";
+const date = months[time.getMonth()] + " " + time.getDate() + ", " + time.getFullYear();
+const currentTime = time.getHours() + ":" + time.getMinutes();
+
 async function getJoke() {
   const result = await axios("https://api.chucknorris.io/jokes/random");
   const joke = result.data.value;
@@ -54,7 +56,7 @@ class MessageInput extends React.Component {
     dialogId: window.location.pathname.replace("/", ""),
     author: "me",
     date: date,
-    time: "0:00",
+    time: currentTime,
   };
 
   changeMessageText = (e) => {
@@ -63,7 +65,7 @@ class MessageInput extends React.Component {
   addRespond = (joke) => {
     this.setState({
       messageText: joke,
-      author: "Chuck Norris",
+      author: "interlocutor",
     });
     const currentMessage = this.state;
     this.props.addNewMessage(currentMessage);

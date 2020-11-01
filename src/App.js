@@ -9,7 +9,7 @@ function App(props) {
     <BrowserRouter>
       <div className="App">
         <Sidebar myAvatar={props.store.myAvatar}/>
-        <Redirect exact path="/" to="/1" />
+        <Redirect exact path="/" to="/2" />
         {props.store.dialogs.map((dialog) => {
           return (
             <Route

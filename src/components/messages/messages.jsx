@@ -13,12 +13,16 @@ const mapDispatch = (dispatch) => {
 };
 
 class Messages extends React.Component {
+  componentDidMount () {
+  
+  }
   render() {
     return (
       <div className="messages">
         {this.props.dialog.messages.map((message) => {
           return (
             <Message
+              author={message.author}
               text={message.text}
               date={message.date}
               time={message.time}
