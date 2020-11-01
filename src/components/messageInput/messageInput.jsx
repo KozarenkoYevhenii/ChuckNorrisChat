@@ -41,8 +41,9 @@ const months = [
 ];
 
 const time = new Date();
-const date = months[time.getMonth()] + " " + time.getDate() + ", " + time.getFullYear();
-const currentTime = time.getHours() + ":" + time.getMinutes();
+const date =
+  months[time.getMonth()] + " " + time.getDate() + ", " + time.getFullYear();
+const currentTime = time.getHours() + ":" + (time.getMinutes() > 9 ? time.getMinutes() : ("0" + time.getMinutes()));
 
 async function getJoke() {
   const result = await axios("https://api.chucknorris.io/jokes/random");
@@ -72,18 +73,21 @@ class MessageInput extends React.Component {
     const addedMessages = store.get("messages");
     addedMessages.unshift(currentMessage);
     store.set("messages", addedMessages);
-    this.setState({ messageText: "" });
+    this.setState({ messageText: "", author: "me" });
   };
+  delayRespond = () => {};
   addNewMessage = (e) => {
     const currentMessage = this.state;
     this.props.addNewMessage(currentMessage);
     let addedMessages = [];
-    store.get("messages") ? addedMessages = store.get("messages") : addedMessages = [];
+    store.get("messages")
+      ? (addedMessages = store.get("messages"))
+      : (addedMessages = []);
     addedMessages.unshift(currentMessage);
     store.set("messages", addedMessages);
     e.target.value = "";
     this.setState({ messageText: "", author: "me" });
-    getJoke().then((joke) => this.addRespond(joke));
+    setTimeout(() => {getJoke().then((joke) => this.addRespond(joke))}, 3000)
   };
   render() {
     return (

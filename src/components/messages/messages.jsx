@@ -3,6 +3,7 @@ import Message from "../message/message";
 import "./messages.css";
 import { connect } from "react-redux";
 
+
 const mapState = (state) => {
   return {
     dialogs: state.dialogs,
@@ -13,9 +14,6 @@ const mapDispatch = (dispatch) => {
 };
 
 class Messages extends React.Component {
-  componentDidMount () {
-  
-  }
   render() {
     return (
       <div className="messages">

@@ -26,17 +26,18 @@ class SearchField extends React.Component {
 
   handleSearchChange = (e) => {
     const currentInput = e.target.value;
+    const filteredDialogs = this.state.dialogs.filter((dialog) =>
+      dialog.contact
+        .toLocaleLowerCase()
+        .includes(currentInput.toLocaleLowerCase())
+    );
     this.setState({
       search: currentInput,
-      filteredDialogs: this.state.dialogs.filter((dialog) =>
-        dialog.contact
-          .toLocaleLowerCase()
-          .includes(currentInput.toLocaleLowerCase())
-      ),
+      filteredDialogs,
     });
-
-    this.props.filterDialogs(this.state.filteredDialogs);
+    this.props.filterDialogs(filteredDialogs);
   };
+
   render() {
     return (
       <div className="search-field">
